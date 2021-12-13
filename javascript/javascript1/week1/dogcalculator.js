@@ -1,17 +1,24 @@
 console.log("Dog Calculator");
-let dogYearOfBirth = 2000;
+const dogYearOfBirth = 2000;
 let dogYearFuture = 2042;
-let dogYear = dogYearFuture - dogYearOfBirth;
-let dogAge = dogYear * 7;
+let dogAgeInHumanYears = dogYearFuture - dogYearOfBirth;
+let dogAgeInDogYears = dogAgeInHumanYears * 7;
 
-let shouldShowResultInDogYears = false;
+let shouldShowResultInDogYears = true;
 if (shouldShowResultInDogYears === true) {
   console.log(
-    "Your dog will be " + dogAge + " years old in " + dogYearFuture + "."
+    "Your dog will be " +
+      dogAgeInDogYears +
+      " years old in " +
+      dogYearFuture +
+      "."
   );
-} else shouldShowResultInDogYears === false;
-{
+} else {
   console.log(
-    "Your dog will be " + dogYear + " human years old in " + dogYearFuture + "."
+    "Your dog will be " +
+      dogAgeInHumanYears +
+      " human years old in " +
+      dogYearFuture +
+      "."
   );
 }

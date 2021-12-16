@@ -1,18 +1,22 @@
-function getFullName(firstname, surname, useFormalName) {
+function getFullName(firstname, surname, useFormalName, gender) {
   if (useFormalName === true) {
-    return "Lord " + firstname + surname;
+    switch (gender) {
+      case "female":
+        return "Lady " + firstname + " " + surname;
+        break;
+      case "male":
+        return "Lord " + firstname + " " + surname;
+        break;
+      default:
+        return firstname + " " + surname;
+    }
   } else {
-    return firstname + surname;
+    return firstname + " " + surname;
   }
 }
 
-let fullName1 = getFullName("Benjamin", " Hughes", true);
-let fullName2 = getFullName("Rebecca", " Hockley", false);
+const fullName1 = getFullName("Benjamin", "Hughes", true, "male");
+const fullName2 = getFullName("Rebecca", "Hockley", false, "female");
 
-console.log(fullName1, fullName2);
-
-/* To fix the getFullName function so it works for women, I would assume that you
-would have not just one checkbox, but two. One for Male, one for Female. So, instead of 
-useFormalName, you could have a boolean of if they are male, or not. If true, return "Lord",
-else return "Lady" */
-
+console.log(fullName1);
+console.log(fullName2);

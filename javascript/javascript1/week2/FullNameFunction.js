@@ -1,5 +1,7 @@
 function getFullName(firstname, surname, useFormalName, gender) {
-  if (useFormalName === true) {
+  if (firstname === "" || surname === "") {
+    console.log("Oops! You must enter a name!");
+  } else if (useFormalName === true) {
     switch (gender) {
       case "female":
         return "Lady " + firstname + " " + surname;
@@ -16,7 +18,7 @@ function getFullName(firstname, surname, useFormalName, gender) {
 }
 
 const fullName1 = getFullName("Benjamin", "Hughes", true, "male");
-const fullName2 = getFullName("Rebecca", "Hockley", false, "female");
+const fullName2 = getFullName("Rebecca", "", false, "female"); // Tested to make sure it shows the error message //
 
 console.log(fullName1);
 console.log(fullName2);

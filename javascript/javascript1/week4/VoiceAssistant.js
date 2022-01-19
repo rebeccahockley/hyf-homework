@@ -2,7 +2,6 @@ let myCommand = [];
 const namesOfUser = [];
 const toDoList = [];
 const todayDate = new Date();
-let note = [];
 
 function getReply(command) {
   myCommand = command.split(" ");
@@ -15,28 +14,31 @@ function getReply(command) {
   ) {
     console.log("Nice to meet you " + namesOfUser[0]);
   }
+
   if (myCommand[0] == "Add") {
-    if (command == "Add fishing to my todo") {
-      toDoList.push(myCommand[1]);
-      console.log("Fishing added to your to do list");
-    } else if (command == "Add singing in the shower to my todo") {
-      for (let i = 1; i < myCommand.length - 3; i++) {
-        note.push(myCommand[i]);
-      }
-      note = note.join(" ");
-      toDoList.push(note);
-      console.log("Singing in the shower added to your to do list");
+    let note = [];
+    for (let i = 1; i < myCommand.length - 3; i++) {
+      note.push(myCommand[i]);
     }
+    note = note.join(" ");
+    toDoList.push(note);
+    console.log(note + " added to your to do list");
   }
+
   if (myCommand[0] == "Remove") {
-    if (command == "Remove fishing from my todo") {
-      toDoList.splice("fishing", 1);
+    let removeKeyWords = myCommand.splice(1, myCommand.length - 4);
+    removeKeyWords = removeKeyWords.join(" ");
+    console.log(removeKeyWords);
+    for (let i = 0; i < toDoList.length; i++) {
+      if (toDoList[i] === removeKeyWords) {
+        toDoList.splice(i, 1);
+      }
     }
   }
   if (myCommand[0] == "Set") {
-    if (command == "Set a timer for 4 minutes") {
+    if (myCommand[2] == "timer") {
       console.log("Timer set for " + myCommand[4] + " minutes");
-      time = myCommand[4] * 60000;
+      time = parseInt(myCommand[4]) * 60000;
       const timeOutCountdown = setTimeout(function countdown() {
         console.log("Timer Done!");
       }, time);
@@ -52,18 +54,21 @@ function getReply(command) {
       console.log(todayDate.toDateString());
     }
     if (command == "What is on my todo?") {
-      console.log(toDoList);
+      console.log("Your to do list is:");
+      for (let i = 0; i < toDoList.length; i++) {
+        console.log(toDoList[i]);
+      }
     }
   }
 }
 
-// // getReply("Hello my name is Benjamin");
+// getReply("Hello my name is Benjamin");
 // getReply("Add singing in the shower to my todo");
-// // console.log(note);
-// getReply("Add fishing to my todo");
+getReply("Add shop for groceries to my todo");
+getReply("Add go fishing to my todo");
 // console.log(toDoList);
-// // getReply("What is on my todo?");
-// getReply("Remove fishing from my todo");
+getReply("What is on my todo?");
+// getReply("Remove shop for groceries from my todo");
 // console.log(toDoList);
 
-getReply("Set a timer for 2 minutes");
+// getReply("Set a timer for 1 minutes");

@@ -13,22 +13,16 @@ const spiritAnimalArray = [
   "The Intelligent Pony",
 ];
 
-myButton.onclick = function (event) {
-  if (inputText.length > 0) {
-    const section = document.querySelector("section");
-    const p = document.createElement("p");
-    const randomNumber = Math.floor(Math.random() * spiritAnimalArray.length);
-    p.innerText = inputText + " - " + spiritAnimalArray[randomNumber];
-    section.appendChild(p);
-  } else {
-    const section = document.querySelector("section");
-    const p = document.createElement("p");
-    p.innerText = "Please input your name to generate your spirit animal.";
-    section.appendChild(p);
-  }
-};
+const section = document.querySelector("section");
+const p = document.createElement("p");
+const randomNumber = Math.floor(Math.random() * spiritAnimalArray.length);
 
-const myInput = document.querySelector("input");
-myInput.oninput = function (event) {
-  inputText = event.target.value;
+myButton.onclick = function () {
+  if (inputText) {
+    p.innerText = inputText + " - " + spiritAnimalArray[randomNumber];
+  } else {
+    p.innerText = "Please input your name to generate your spirit animal.";
+  }
+
+  section.appendChild(p);
 };

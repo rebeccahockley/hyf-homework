@@ -39,7 +39,7 @@ function logLocation() {
     para.innerHTML = `Your latitude is: ${latitude}, your longitude is: ${longitude}`;
     body.appendChild(para);
   }
-  function error(error) {
+  function error() {
     para.innerHTML = `Need access to location services`;
     body.appendChild(para);
   }
@@ -56,12 +56,17 @@ function giveMeANumber() {
   console.log(Math.floor(Math.random() * 20));
 }
 
+function wordLogger() {
+  console.log("This is a word");
+}
+
 function runAfterDelay(delay, callback) {
   const delayIntoMilliseconds = delay * 1000;
   setTimeout(() => callback(), delayIntoMilliseconds);
 }
 
 runAfterDelay(5, giveMeANumber);
+runAfterDelay(10, wordLogger);
 
 //  Double click Checker
 

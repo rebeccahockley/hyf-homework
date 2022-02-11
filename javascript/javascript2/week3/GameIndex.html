@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="GameCSS.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="GameJS.js"></script>
+    <h1>Fastest Presser!</h1>
+    <p id="HTP">
+      How to Play:<br />
+      1. Enter the amount of seconds you wish to play for<br />
+      2. Enter Player Names and press 'Edit Names'<br />
+      3. Press 'Start Game' and have fingers on those buttons!<br />
+      4. Press 's' and 'l' according to which player you are<br />
+      5. Get the results and see if YOU make the leaderboard!<br />
+      6. Press 'Reset Game' if you dare take the challenge again!<br />
+      Ready, Set... Go!
+    </p>
+    <div class="idboxes">
+      <input type="number" id="inputbox" placeholder="No. of seconds" />
+      <input type="text" id="playerOne" placeholder="Player 1 Name" />
+      <input type="text" id="playerTwo" placeholder="Player 2 Name" />
+    </div>
+
+    <div id="alertdiv">
+      <p id="alerts"></p>
+    </div>
+
+    <div class="buttons">
+      <button onclick="startGame()">Start Game!</button>
+      <button onclick="editNames()">Edit Names!</button>
+      <button onclick="resetGame()">Reset Game!</button>
+    </div>
+
+    <div class="playerhalves">
+      <p class="nameOne">Player One</p>
+      <p>Press 'S'</p>
+      <p id="displayS"></p>
+    </div>
+    <div class="playerhalves">
+      <p class="nameTwo">Player Two</p>
+      <p>Press 'L'</p>
+      <p id="displayL"></p>
+    </div>
+    <div id="leaderboard">
+      <p>LEADERBOARD</p>
+    </div>
+    <div>
+      <ul id="leaderboardScores"></ul>
+    </div>
+  </body>
+</html>

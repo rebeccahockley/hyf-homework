@@ -79,7 +79,5 @@ console.log(findDuplicateWordsInTitle);
 // 8. Calculate the average rating of all the movies using reduce.
 
 const averageOfMovieRatings =
-  movies
-    .map((movie) => movie.rating)
-    .reduce((total, number) => total + number) / movies.length;
+  movies.reduce((total, number) => total + number.rating, 0) / movies.length;
 console.log(averageOfMovieRatings);

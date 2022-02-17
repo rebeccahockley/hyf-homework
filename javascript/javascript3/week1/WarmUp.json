@@ -1,0 +1,19 @@
+[
+  {
+    "hobby": "music",
+    "types_of_genres": [
+      "jazz",
+      "hiphop",
+      "swing",
+      "pop",
+      "rock",
+      "indie",
+      "alternative"
+    ],
+    "instruments": ["piano", "saxophone", "trumpet", "clarinet", "guitar"],
+    "instruments_I_can_play": ["saxophone", "viola"],
+    "types_of_saxophones": ["tenor", "alto", "bass", "baritone"],
+    "famous_musicians": ["John Coltrane", "Charlie Parker", "Sidney Bechet"],
+    "favourite_musician": "Glenn Miller"
+  }
+]

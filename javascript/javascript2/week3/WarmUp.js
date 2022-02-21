@@ -15,17 +15,20 @@ function clickMeButton() {
 
 // Planet Logger
 
-function earthLogger() {
+const e = function earthLogger() {
   console.log("Earth");
-}
-function saturnLogger() {
+};
+
+const s = function saturnLogger() {
   console.log("Saturn");
+};
+
+function planetLogFunction(planets) {
+  planets();
 }
-function planetLogFunction(planetLogger) {
-  planetLogger();
-}
-planetLogFunction(earthLogger);
-planetLogFunction(saturnLogger);
+
+planetLogFunction(e);
+planetLogFunction(s);
 
 // Location Logger
 
@@ -98,14 +101,6 @@ badJokesArray = [
 ];
 
 function jokeCreator(shouldTellFunnyJoke, logFunnyJoke, logBadJoke) {
-  function logFunnyJoke() {
-    const randomNumber = Math.floor(Math.random() * funnyJokesArray.length);
-    console.log(funnyJokesArray[randomNumber]);
-  }
-  function logBadJoke() {
-    const randomNumber = Math.floor(Math.random() * badJokesArray.length);
-    console.log(badJokesArray[randomNumber]);
-  }
   if (shouldTellFunnyJoke === true) {
     logFunnyJoke();
   } else {
@@ -113,5 +108,14 @@ function jokeCreator(shouldTellFunnyJoke, logFunnyJoke, logBadJoke) {
   }
 }
 
-jokeCreator(true);
-jokeCreator(false);
+function logFunnyJoke() {
+  const randomNumber = Math.floor(Math.random() * funnyJokesArray.length);
+  console.log(funnyJokesArray[randomNumber]);
+}
+function logBadJoke() {
+  const randomNumber = Math.floor(Math.random() * badJokesArray.length);
+  console.log(badJokesArray[randomNumber]);
+}
+
+jokeCreator(false, logFunnyJoke, logBadJoke);
+jokeCreator(true, logFunnyJoke, logBadJoke);

@@ -33,9 +33,9 @@ notAVariable();
 // Functions in an object
 
 const objectWithAFunction = {
-  sum(a, b) {
+  sum: function (a, b) {
     return a + b;
   },
 };
 
-console.log(objectWithAFunction.sum(4, 8));
+console.log(objectWithAFunction.sum(8, 4));

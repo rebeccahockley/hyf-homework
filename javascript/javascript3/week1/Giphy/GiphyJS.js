@@ -2,7 +2,7 @@ let displayGifs = document.getElementById("displayGifs");
 
 function searchGifs() {
   displayGifs.innerHTML = " ";
-  let searchWord = document.getElementById("searchWord").value;
+  let searchWord = document.getElementById("searchword").value;
   let limitGifNumber = document.getElementById("noOfGifs").value;
   if (searchWord == 0 || searchWord == " ") {
     displayGifs.innerHTML = "Please enter a search word to search for gifs";
@@ -20,7 +20,3 @@ function searchGifs() {
       });
   }
 }
-
-// let gifImage = document.createElement("img");
-//           gifImage.innerHTML = `<img src="${gifsToDisplay.data[i].images.fixed_width.url}">`;
-//           displayGifs.appendChild(gifImage);

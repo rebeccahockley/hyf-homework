@@ -20,7 +20,7 @@ task
 JOIN
 status
 ON task.status_id = status.id
-WHERE name LIKE "Done";
+WHERE status.name = "Done";
 
 --4 Find all the tasks that are not marked as done
 SELECT
@@ -30,7 +30,7 @@ task
 JOIN
 status
 ON task.status_id = status.id
-WHERE name LIKE "In Progress" OR name LIKE "Not Started";
+WHERE status.name != "Done";
 
 --5 Get all the tasks, sorted with the most recently created first
 SELECT
@@ -65,24 +65,24 @@ status
 ON task.status_id = status.id;
 
 --9 Get the name of each status, along with a count of how many tasks have that status
-SELECT COUNT(*),
+SELECT COUNT(*) AS Count,
 name
 FROM
 status
 JOIN
 task
 ON status.id = task.status_id
-GROUP BY name;
+GROUP BY status.name;
 
 --10 Get the names of all statuses, sorted by the status with most tasks first
-SELECT COUNT(*),
+SELECT COUNT(*) AS Count,
 name
 FROM
 status
 JOIN
 task
 ON status.id = task.status_id
-GROUP BY name
+GROUP BY status.name
 ORDER BY COUNT(*) DESC;
 
 

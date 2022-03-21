@@ -1,19 +1,16 @@
 const usersList = document.getElementById("container");
 const userNames = ["MJanOthman", "rebeccahockley", "TatjanaOcedova"];
-const promiseArray = [];
-
-userNames.forEach((userName) =>
-  promiseArray.push(
-    fetch(`https://api.github.com/search/repositories?q=user:${userName}`)
-  )
-);
-console.log(promiseArray);
+const promises = [
+  fetch("https://api.github.com/search/repositories?q=user:MJanOthman"),
+  fetch("https://api.github.com/search/repositories?q=user:rebeccahockley"),
+  fetch("https://api.github.com/search/repositories?q=user:TatjanaOcedova"),
+];
 
 let users = () => {
   Promise.all(promiseArray)
-    .then((response) => {
-      return Promise.all(response.map((response) => response.json()));
-    })
+    .then((response) =>
+      Promise.all(response.map((response) => response.json()))
+    )
     .then((data) => {
       console.log(data);
 

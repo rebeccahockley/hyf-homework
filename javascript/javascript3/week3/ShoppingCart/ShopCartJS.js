@@ -28,25 +28,22 @@ class ShoppingCart {
     const searchedProduct = this.products.filter((product) =>
       product.name.toLowerCase().includes(productName)
     );
-    return console.log(searchedProduct);
+    return searchedProduct;
   }
 
   renderProducts() {
     this.products.forEach((product) => {
       const productList = document.createElement("p");
-      productList.innerHTML = `<p>${product.name}: ${product.price}</p>`;
+      productList.innerHTML = `${product.name}: ${product.price}`;
       productContainer.appendChild(productList);
     });
   }
 
   getTotal() {
-    const allProducts = this.products;
-    const totalPrice = allProducts
-      .map((productPrice) => productPrice.price)
-      .reduce(
-        (previousValue, nextProductValue) => previousValue + nextProductValue,
-        0
-      );
+    const totalPrice = this.products.reduce(
+      (previousValue, nextProductValue) => previousValue + nextProductValue,
+      0
+    );
     const totalPricePara = document.createElement("p");
     totalPricePara.innerText = `Total price of shopping cart: ${totalPrice}`;
     productContainer.appendChild(totalPricePara);
@@ -54,16 +51,14 @@ class ShoppingCart {
 
   getUser() {
     const randomUser = Math.floor(Math.random() * 10 + 1);
-    return fetch(
-      `https://jsonplaceholder.typicode.com/users/${randomUser}`
-    ).then((response) =>
-      response.json().then((data) => {
+    return fetch(`https://jsonplaceholder.typicode.com/users/${randomUser}`)
+      .then((response) => response.json())
+      .then((data) => {
         const userNameContainer = document.getElementById("username-container");
         const userName = document.createElement("p");
         userName.innerHTML = data.name;
         userNameContainer.appendChild(userName);
-      })
-    );
+      });
   }
 }
 

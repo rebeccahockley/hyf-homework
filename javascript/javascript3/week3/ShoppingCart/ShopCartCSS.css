@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  width: 500px;
+  height: 700px;
+}
+
+#shopping-list {
+  background-color: rgb(230, 225, 218);
+  padding: 10px;
+  box-shadow: 3px 3px 5px;
+}
+
+#username-container {
+  font-size: 18px;
+  font-weight: bold;
+}

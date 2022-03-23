@@ -10,7 +10,7 @@ CREATE TABLE `class` (
 );
 
 CREATE TABLE `student` (
-  `Student_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `Student_id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Name` varchar(100) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Phone` varchar(20) NULL,

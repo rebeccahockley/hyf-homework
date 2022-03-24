@@ -2,7 +2,7 @@ CREATE DATABASE LibraryDatabase DEFAULT CHARSET=utf8mb4;
 
 USE LibraryDatabase;
 
-CREATE TABLE `Member` (
+CREATE TABLE `Members` (
   `Member_ID` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `First_Name` varchar(255) NOT NULL,
   `Last_Name` varchar(255) NOT NULL,
@@ -11,28 +11,33 @@ CREATE TABLE `Member` (
   `Phone` varchar(20) NULL
 ); 
 
-CREATE TABLE `Book_Status` (
-  `Status_ID` int(10) unsigned NOT NULL PRIMARY KEY,
-  `Name` varchar(255) NOT NULL
-); 
-
 CREATE TABLE `Book_Details` (
   `Book_ID` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Title` varchar(255) NOT NULL,
   `Author` varchar(255) NOT NULL,
-  `Genre` varchar(255) NOT NULL,
-  `Shelf_ID` int NOT NULL,
-  `Status_ID` int(10) unsigned NOT NULL,
-  `Reserved` varchar(20) NOT NULL,
-  CONSTRAINT `fk_status` FOREIGN KEY (`Status_ID`) REFERENCES `Book_Status` (`Status_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+  `Genre` varchar(255)
 ); 
 
-CREATE TABLE `Loaned_Books` (
+CREATE TABLE `Status_Details` (
+  `Status_ID` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `Status_Name` int NOT NULL,
+  `Borrowed_Date` DATETIME NULL,
+  `Due_Date` DATETIME NULL
+); 
+
+CREATE TABLE `Members_Books` (
   `Index_ID` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `Member_ID` int unsigned NOT NULL,
   `Book_ID` int unsigned NOT NULL,
-  `Borrow_Date` DATETIME NOT NULL,
-  `Due_Date` DATETIME NOT NULL,
-  CONSTRAINT `fk_member` FOREIGN KEY (`Member_ID`) REFERENCES `Member`(`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_member` FOREIGN KEY (`Member_ID`) REFERENCES `Members`(`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_book` FOREIGN KEY (`Book_ID`) REFERENCES `Book_Details`(`Book_ID`) ON DELETE CASCADE ON UPDATE CASCADE 
 ); 
+
+CREATE TABLE `Books_Status` (
+  `Index_ID` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `Status_ID` int unsigned NOT NULL,
+  `Book_ID` int unsigned NOT NULL,
+  CONSTRAINT `fk_status` FOREIGN KEY (`Status_ID`) REFERENCES `Status_Details`(`Status_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_books` FOREIGN KEY (`Book_ID`) REFERENCES `Book_Details`(`Book_ID`) ON DELETE CASCADE ON UPDATE CASCADE 
+); 
+

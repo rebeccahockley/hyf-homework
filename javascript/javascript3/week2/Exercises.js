@@ -4,9 +4,7 @@ async function getMovies() {
       "https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0ae8d0a4/raw/02d8bc9ec9a73e463b13c44df77a87255def5ab9/movies.json"
     );
     const movies = await response.json();
-    console.log(movies);
     const badMovies = movies.filter((movie) => movie.rating < 6);
-    console.log(badMovies);
     const badMoviesSince2000 = badMovies.filter((movie) => movie.year >= 2000);
     console.log(badMoviesSince2000);
   } catch (error) {
@@ -23,11 +21,9 @@ function resolvedAfterSetTime(resolveAfter) {
     setTimeout(function () {
       resolve("I am called asynchronously");
     }, resolveAfter * 1000);
-  })
-    .then(function (result) {
-      console.log(result);
-    })
-    .catch(console.log.bind(console));
+  }).then(function (result) {
+    console.log(result);
+  });
 }
 
 resolvedAfterSetTime(6);
@@ -35,12 +31,12 @@ resolvedAfterSetTime(6);
 // Use it with async/await
 
 async function resolveAfterWithAsync(resolveAfter) {
-  await new Promise((resolve) => {
-    setTimeout(function () {
-      resolve();
-    }, resolveAfter * 1000);
-  });
   try {
+    await new Promise((resolve) => {
+      setTimeout(function () {
+        resolve();
+      }, resolveAfter * 1000);
+    });
     console.log("I am called with async/await");
   } catch (error) {
     console.log(error);
@@ -63,16 +59,9 @@ setTimeoutPromise(2000);
 
 //Location Promise
 
-function success(position) {
-  console.log(position);
-}
-function onError() {
-  console.log("Error");
-}
-
 function getLocation() {
   return new Promise(function (resolve) {
-    navigator.geolocation.getCurrentPosition(resolve, onError);
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   }).then(function () {
     console.log("Called location API");
   });
@@ -83,25 +72,20 @@ getLocation();
 
 function fetchAndWait() {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      fetch(`https://yesno.wtf/api`)
-        .then((apiData) => apiData.json())
-        .then((apiData) => resolve(apiData));
-    }, 3000);
-  })
-    .then((apiData) => {
-      console.log(apiData.answer);
-    })
-    .catch(console.log.bind(console));
+    setTimeoutPromise(3000)
+      .then(() => fetch(`https://yesno.wtf/api`))
+      .then((response) => response.json())
+      .then((responseJson) => resolve(responseJson.answer));
+  });
 }
 
-fetchAndWait();
+fetchAndWait().then(console.log).catch(console.error);
 
 async function fetchAndWaitAsync() {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 3000);
-  });
   try {
+    await new Promise((resolve) => {
+      setTimeout(resolve, 3000);
+    });
     const response = await fetch(`https://yesno.wtf/api`);
     const apiDataAsync = await response.json();
     console.log(apiDataAsync.answer);

@@ -7,10 +7,10 @@ class Circle {
     return this.radius * 2;
   }
   getCircumference() {
-    return (2 * 3.14 * this.radius).toFixed(2);
+    return (2 * Math.PI * this.radius).toFixed(2);
   }
   getArea() {
-    return this.radius * this.radius * 3.14;
+    return this.radius * this.radius * Math.PI;
   }
 }
 

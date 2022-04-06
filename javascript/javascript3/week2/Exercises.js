@@ -6,7 +6,6 @@ async function getMovies() {
     const movies = await response.json();
     const badMovies = movies.filter((movie) => movie.rating < 6);
     const badMoviesSince2000 = badMovies.filter((movie) => movie.year >= 2000);
-    console.log(badMoviesSince2000);
   } catch (error) {
     console.log(error);
   }
@@ -21,6 +20,11 @@ function resolvedAfterSetTime(resolveAfter) {
     setTimeout(function () {
       resolve("I am called asynchronously");
     }, resolveAfter * 1000);
+  })
+    .then(function (result) {
+      console.log(result);
+    })
+    .catch(console.log.bind(console));
   }).then(function (result) {
     console.log(result);
   });
@@ -31,6 +35,11 @@ resolvedAfterSetTime(6);
 // Use it with async/await
 
 async function resolveAfterWithAsync(resolveAfter) {
+  await new Promise((resolve) => {
+    setTimeout(function () {
+      resolve();
+    }, resolveAfter * 1000);
+  });
   try {
     await new Promise((resolve) => {
       setTimeout(function () {
@@ -58,7 +67,9 @@ function setTimeoutPromise(delay) {
 setTimeoutPromise(2000);
 
 //Location Promise
-
+function onError() {
+  console.log("Error");
+}
 function getLocation() {
   return new Promise(function (resolve) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -72,6 +83,27 @@ getLocation();
 
 function fetchAndWait() {
   return new Promise((resolve) => {
+
+    setTimeout(() => {
+      fetch(`https://yesno.wtf/api`)
+        .then((apiData) => apiData.json())
+        .then((apiData) => resolve(apiData));
+    }, 3000);
+  })
+    .then((apiData) => {
+      console.log(apiData.answer);
+    })
+    .catch(console.log.bind(console));
+}
+
+fetchAndWait();
+
+async function fetchAndWaitAsync() {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 3000);
+  });
+  try {
+
     setTimeoutPromise(3000)
       .then(() => fetch(`https://yesno.wtf/api`))
       .then((response) => response.json())

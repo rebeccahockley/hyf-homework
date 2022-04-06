@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Indian food in the summer",
+    "maxNumberOfGuests": 5,
+    "description": "A nice night out eating delicious indian food",
+    "createdAt": "2019/12/7 14:34",
+    "price": 67
+  },
+  {
+    "id": 2,
+    "title": "Spaghetti and Meatballs",
+    "maxNumberOfGuests": 10,
+    "description": "Let's get our Italian on!",
+    "createdAt": "2021/11/9 17:03",
+    "price": 50
+  },
+  {
+    "id": 3,
+    "title": "Traditional Danish Night",
+    "maxNumberOfGuests": 20,
+    "description": "The 'ol meat and potatoes",
+    "createdAt": "2022/2/21 10:46",
+    "price": 89
+  }
+]

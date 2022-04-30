@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Benjamin Hughes",
+    "email": "benjamin@hughes.dk",
+    "mealId": 1
+  },
+  {
+    "id": 2,
+    "name": "Rebecca Hockley",
+    "email": "hockley.r@yahoo.com",
+    "mealId": 2
+  },
+  {
+    "id": 3,
+    "name": "Owain Smith",
+    "email": "fishingtrip@boats.com",
+    "mealId": 3
+  },
+  {
+    "id": 4,
+    "name": "James Jameson",
+    "email": "Jameson@gmail.com",
+    "mealId": 3
+  }
+]

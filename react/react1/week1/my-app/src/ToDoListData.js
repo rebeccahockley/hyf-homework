@@ -1,6 +1,6 @@
 import tasks from "./ToDoListTasks";
 import ToDoListHeader from "./ToDoListHeader";
-import ToDoListItems from "./ToDoListItems";
+import ToDoListItem from "./ToDoListItems";
 
 function ToDoListData() {
   return (
@@ -9,7 +9,7 @@ function ToDoListData() {
       <ul>
         {tasks.map((task) => {
           return (
-            <ToDoListItems
+            <ToDoListItem
               title={task.title}
               description={task.description}
               deadline={task.deadline}

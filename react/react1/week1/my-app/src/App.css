@@ -1,0 +1,13 @@
+.listItem {
+  list-style: none;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 24px;
+  padding-left: 20px;
+}
+
+h2 {
+  font-size: 18px;
+}

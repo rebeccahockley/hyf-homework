@@ -1,4 +1,4 @@
-function ToDoListItems(props) {
+function ToDoListItem(props) {
   return (
     <div>
       <h2>{props.title}:</h2>
@@ -8,4 +8,4 @@ function ToDoListItems(props) {
   );
 }
 
-export default ToDoListItems;
+export default ToDoListItem;

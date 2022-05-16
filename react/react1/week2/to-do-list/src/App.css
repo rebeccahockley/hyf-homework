@@ -1,0 +1,14 @@
+.Container {
+  margin: 20px;
+}
+
+.listItems {
+  font-size: 16px;
+  line-height: 2em;
+  list-style-type: none;
+}
+
+.style-checked {
+  text-decoration: line-through;
+  list-style-type: none;
+}

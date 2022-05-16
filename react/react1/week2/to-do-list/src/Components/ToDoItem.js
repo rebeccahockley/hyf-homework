@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
-// import { TaskData } from "../Data/TaskData";
 
-export const ToDoItem = (props, deleteTask) => {
+export const ToDoItem = (props) => {
   const [checked, setChecked] = useState(false);
   const [listStyle, setStyle] = useState("listItems");
 

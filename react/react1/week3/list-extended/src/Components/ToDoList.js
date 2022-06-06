@@ -29,7 +29,6 @@ export const RenderToDoList = () => {
 
   function handleAdd() {
     const newTask = { id: list.length + 1, description, deadline };
-    console.log(newTask.description);
     const currentDate = new Date();
     const deadlineDate = new Date(newTask.deadline);
     if (newTask.description === "" || newTask.description === undefined) {

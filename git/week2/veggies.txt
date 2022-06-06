@@ -1,7 +1,5 @@
 Courgette
 Carrot
-Mushroom
+Eggplant
 Broccoli
 Peppers
-Spinach
-Swede

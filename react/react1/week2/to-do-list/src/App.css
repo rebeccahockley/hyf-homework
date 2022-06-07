@@ -1,0 +1,14 @@
+.container {
+  margin: 20px;
+}
+
+.listItems {
+  font-size: 16px;
+  line-height: 2em;
+  list-style-type: none;
+}
+
+.styleChecked {
+  text-decoration: line-through;
+  list-style-type: none;
+}

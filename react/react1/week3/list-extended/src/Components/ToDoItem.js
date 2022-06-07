@@ -10,7 +10,7 @@ export const ToDoItem = (props) => {
   function handleCheck(event) {
     if (event.target.checked === true) {
       setChecked(checked);
-      setStyle("style-checked");
+      setStyle("styleChecked");
     } else {
       setChecked(!checked);
       setStyle("listItems");

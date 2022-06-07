@@ -59,7 +59,7 @@ export const RenderToDoList = () => {
       <label>
         Description:
         <input
-          className="input-boxes"
+          className="inputBoxes"
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -68,7 +68,7 @@ export const RenderToDoList = () => {
       <label>
         Deadline:
         <input
-          className="input-boxes"
+          className="inputBoxes"
           type="Date"
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}

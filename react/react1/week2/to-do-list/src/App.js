@@ -5,7 +5,7 @@ import { RenderToDoList } from "./Components/ToDoList";
 
 function App() {
   return (
-    <div className="Container">
+    <div className="container">
       <ToDoListHeader />
       <Timer />
       <RenderToDoList />

@@ -8,7 +8,7 @@ export const ToDoItem = (props) => {
   function handleCheck(event) {
     if (event.target.checked === true) {
       setChecked(checked);
-      setStyle("style-checked");
+      setStyle("styleChecked");
     } else {
       setChecked(!checked);
       setStyle("listItems");
@@ -17,7 +17,7 @@ export const ToDoItem = (props) => {
 
   return (
     <li className={listStyle}>
-      {props.id}. {props.task}
+      {props.task}
       <input type="checkbox" onClick={handleCheck}></input>
     </li>
   );

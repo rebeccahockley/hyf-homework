@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../App.css";
-// import { TaskData } from "../Data/TaskData";
 
 export const ToDoItem = (props) => {
   const [checked, setChecked] = useState(false);
@@ -10,7 +9,6 @@ export const ToDoItem = (props) => {
     if (event.target.checked === true) {
       setChecked(checked);
       setStyle("style-checked");
-      console.log("checked!");
     } else {
       setChecked(!checked);
       setStyle("listItems");

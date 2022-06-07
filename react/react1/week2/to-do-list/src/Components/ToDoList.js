@@ -21,7 +21,7 @@ export const RenderToDoList = () => {
     setList(newList);
   }
 
-  let listItems = list.map((item) => (
+  const listItems = list.map((item) => (
     <div key={item.id}>
       <ToDoItem id={item.id} task={item.task} />
       <button onClick={() => handleDelete(item.id)}>Delete</button>

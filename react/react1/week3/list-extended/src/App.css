@@ -1,0 +1,30 @@
+.App {
+  padding-left: 30px;
+}
+
+body {
+  align-items: center;
+}
+
+.listItems {
+  font-size: 16px;
+  line-height: 2em;
+  list-style-type: none;
+}
+
+.styleChecked {
+  text-decoration: line-through;
+  list-style-type: none;
+}
+
+.border {
+  border: black solid 1px;
+  width: 300px;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.inputBoxes {
+  margin: 10px;
+}
